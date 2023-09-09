@@ -46,8 +46,7 @@ modrinth {
     token = System.getenv("MODRINTH_TOKEN")
     projectId = "hswf3"
     versionType = findProperty("versionType")
-	changelog = findProperty("changelog")
+	changelog = findProperty("changelog")?.allWhitespace ? DEFAULT_CHANGELOG : findProperty("changelog")
     uploadFile = remapJar
 	syncBodyFrom = rootProject.file("README.md").text
-	debugMode = true
 }
