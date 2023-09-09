@@ -1,0 +1,26 @@
+{
+	"schemaVersion": 1,
+	"id": "hswf3",
+	"version": "${version}",
+	"name": "Hide Scoreboard When F3",
+	"description": "Its in the name, thats all it does",
+	"contact": {
+		"homepage":"https://github.com/FileOfName/hswf3",
+		"issues":"https://github.com/FileOfName/hswf3/issues",
+		"sources":"https://github.com/FileOfName/hswf3"
+	},
+	"authors": [
+		"FileOfName"
+	],
+	"license": "MIT",
+	"icon": "assets/hswf3/icon.png",
+	"environment": "client",
+	"mixins": [
+		"hswf3.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.22",
+		"minecraft": "~1.20",
+		"java": ">=17"
+	}
+}

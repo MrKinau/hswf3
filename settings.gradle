@@ -1,0 +1,25 @@
+pluginManagement {
+	repositories {
+		maven {
+			name = 'Fabric'
+			url = 'https://maven.fabricmc.net/'
+		}
+		mavenCentral()
+		gradlePluginPortal()
+	}
+}
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        libs {
+            def minecraft = "1.20.1"
+            version("minecraft",minecraft)
+            version("mappings","${minecraft}+build.10")
+            version("fabric-loader","0.14.22")
+
+            library("minecraft", "com.mojang","minecraft").versionRef("minecraft")
+            library("mappings","net.fabricmc", "yarn").versionRef("mappings")
+            library("fabric-loader", "net.fabricmc","fabric-loader").versionRef("fabric-loader")
+        }
+    }
+}
