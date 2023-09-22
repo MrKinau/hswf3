@@ -7,7 +7,7 @@ import net.fabricmc.api.ClientModInitializer;
 
 //Currently unused but might be later
 public class HSWF3Mod implements ClientModInitializer {
-    public static final Logger LOGGER = LoggerFactory.getLogger("hswf3");
+	public static final Logger LOGGER = LoggerFactory.getLogger("hswf3");
 
 	@Override
 	public void onInitializeClient() {

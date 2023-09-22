@@ -35,23 +35,23 @@ java {
 
 jar {
 	sourceSets {
-        main {
-            java {
-                exclude "com/fileofname/hswf3/HSWF3Mod.java" //Currently unused so exclude from build
-            }
-        }
-    }
+		main {
+			java {
+				exclude "com/fileofname/hswf3/HSWF3Mod.java" //Currently unused so exclude from build
+			}
+		}
+	}
 	from("LICENSE") {
 		rename { "${it}_${project.base.archivesName.get()}"}
 	}
 }
 
 modrinth {
-    token = System.getenv("MODRINTH_TOKEN")
-    projectId = "hswf3"
-    versionType = findProperty("versionType")?.allWhitespace ? DEFAULT_VERSION_TYPE : findProperty("versionType")
+	token = System.getenv("MODRINTH_TOKEN")
+	projectId = "hswf3"
+	versionType = findProperty("versionType")?.allWhitespace ? DEFAULT_VERSION_TYPE : findProperty("versionType")
 	changelog = findProperty("changelog")?.allWhitespace ? DEFAULT_CHANGELOG : findProperty("changelog")
-    uploadFile = remapJar
+	uploadFile = remapJar
 	syncBodyFrom = rootProject.file("README.md").text
 	loaders = ["fabric", "quilt"]
 	debugMode = findProperty("modrinthDebug")?.allWhitespace ? false : findProperty("modrinthDebug")?.toBoolean()
