@@ -1,5 +1,6 @@
 package com.fileofname.hswf3.mixin;
 
+import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,6 +17,6 @@ public class InGameHudMixin {
 
 	@Inject(at = @At("HEAD"), method = "renderScoreboardSidebar", cancellable = true)
 	private void hideScoreboard(CallbackInfo info) {
-		if (client.options.debugEnabled) info.cancel();
+		if (client.getDebugHud().showDebugHud) info.cancel();
 	}
 }

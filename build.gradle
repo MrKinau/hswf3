@@ -22,6 +22,10 @@ tasks.withType(JavaCompile).configureEach {
 	it.options.release = 17
 }
 
+loom {
+	accessWidenerPath = file("src/main/resources/hswf3.accesswidener")
+}
+
 java {
 	withSourcesJar()
 
@@ -45,8 +49,12 @@ jar {
 modrinth {
     token = System.getenv("MODRINTH_TOKEN")
     projectId = "hswf3"
-    versionType = findProperty("versionType")
+    versionType = findProperty("versionType")?.allWhitespace ? DEFAULT_VERSION_TYPE : findProperty("versionType")
 	changelog = findProperty("changelog")?.allWhitespace ? DEFAULT_CHANGELOG : findProperty("changelog")
     uploadFile = remapJar
 	syncBodyFrom = rootProject.file("README.md").text
+	loaders = ["fabric", "quilt"]
+	debugMode = findProperty("modrinthDebug")?.allWhitespace ? false : findProperty("modrinthDebug")?.toBoolean()
 }
+
+tasks.modrinth.dependsOn(tasks.modrinthSyncBody)

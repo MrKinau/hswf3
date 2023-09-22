@@ -12,9 +12,9 @@ pluginManagement {
 dependencyResolutionManagement {
     versionCatalogs {
         libs {
-            def minecraft = "1.20.1"
+            def minecraft = "1.20.2"
             version("minecraft",minecraft)
-            version("mappings","${minecraft}+build.10")
+            version("mappings","${minecraft}+build.1")
             version("fabric-loader","0.14.22")
 
             library("minecraft", "com.mojang","minecraft").versionRef("minecraft")
